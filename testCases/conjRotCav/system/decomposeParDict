@@ -1,0 +1,83 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  www.openfoam.com from https://openfoam.org
+    \\  /    A nd           | Version:  v2006 from OF6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      decomposeParDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+numberOfSubdomains  16; //72;
+
+method          scotch;
+// method 	   hierarchica;
+// method 	   simple;
+
+simpleCoeffs
+{
+    n           (2 2 1);
+    delta       0.001;
+}
+
+hierarchicalCoeffs
+{
+    n           (2 2 1);
+    delta       0.001;
+    order       xyz;
+}
+
+//constraints
+//{
+//	baffles
+//	{
+//		type preserveBaffles;
+//		enabled true;
+//	}
+//
+//	patches_cav
+//	{
+//		type preservePatches;
+//		region cav_fluid;
+//		patches 
+//		(
+//			"cav_disc_int"
+//			"cav_us_int"
+//	           	"cav_ds_int"
+//			"cav_al_int"
+//	 	);
+//		enabled true;
+//	}
+//	
+//	patches_disc
+//	{
+//		type preservePatches;
+//		region disc_solid;
+//		patches
+//		(
+//			"disc_cav_int"
+//			"disc_us_int"
+//			"disc_ds_int"
+//		);
+//		enabled true;
+//	}
+//
+//	patches_al
+//	{
+//		type preservePatches;
+//		region al_solid;
+//		patches
+//		(
+//			"al_cav_int"
+//		);
+//		enabled true;
+//	}
+//}
+// ************************************************************************* //

@@ -1,0 +1,82 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  8
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version         2;
+    format          ascii;
+    class           volScalarField;
+    object          T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include        "$FOAM_CASE/constant/initialConditions"
+
+dimensions      [ 0 0 0 1 0 0 0 ];
+
+internalField   uniform 348;
+
+boundaryField
+{
+    disc_2aw
+    {
+        type            zeroGradient;
+    }
+    disc_3aw
+    {
+        type            zeroGradient;
+    }
+    disc_cw
+    {
+        type            fixedValue;
+        value           uniform 290;
+    }
+    disc_hw
+    {
+        type            fixedValue;
+        value           uniform 375;
+    }
+    disc_cav_int
+    {
+        type            compressible::turbulentTemperatureCoupledBaffleMixedMixingPlane;
+        value           $internalField;
+        kappaMethod     solidThermo;
+        kappa           kappa;
+        Tnbr            T;
+	fluidFilter	false;
+    }
+    disc_us_int
+    {
+        type            compressible::turbulentTemperatureCoupledBaffleMixedMixingPlane;
+        value           $internalField;
+        kappaMethod     solidThermo;
+        kappa           kappa;
+        Tnbr            T;
+	fluidFilter     false;
+    }
+    disc_ds_int
+    {
+        type            compressible::turbulentTemperatureCoupledBaffleMixedMixingPlane;
+        value           $internalField;
+        kappaMethod     solidThermo;
+        kappa           kappa;
+        Tnbr            T;
+	fluidFilter     false;
+    }
+    disc_cavbore_int
+    {
+	type            compressible::turbulentTemperatureCoupledBaffleMixedMixingPlane;
+	value           $internalField;
+	kappaMethod     solidThermo;
+	kappa           kappa;
+	Tnbr            T;
+	fluidFilter     false;
+    }
+}
+
+
+// ************************************************************************* //

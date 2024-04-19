@@ -1,0 +1,7 @@
+To run the case run the Allrun script.
+To clean the case run the Allclean script.
+
+This case uses the chtMultiRegionSRFFoam solver.
+
+The case has been run using 72 processors to convergence at 5s. Convergence has been accelerated using a steadyState solid domain coupled to an unsteady fluid domain.
+

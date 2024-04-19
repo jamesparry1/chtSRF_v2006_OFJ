@@ -1,0 +1,3 @@
+buoyantSRFPimpleFoam.C
+
+EXE = $(FOAM_APPBIN)/buoyantSRFPimpleFoam

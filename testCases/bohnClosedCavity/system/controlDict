@@ -1,0 +1,71 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     buoyantSRFPimpleFoam; 
+
+startFrom       latestTime; //startTime;
+
+startTime	0;
+
+stopAt          endTime; //nextWrite;
+
+endTime         0.1; //2.0;
+
+deltaT          1e-7; //8.311e-5; //2.083e-5; 
+
+writeControl    runTime; //clockTime;
+
+writeInterval   0.1; //0.5;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  8;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   8;
+
+runTimeModifiable true;
+
+adjustTimeStep	yes; 
+
+maxCo		1;
+
+maxDeltaT	0.01;
+
+functions
+{
+	#includeFunc wallHeatFlux
+        #includeFunc probes_cav0deg
+	#includeFunc probes_cav90deg
+	#includeFunc probes_cav180deg
+	#includeFunc probes_cav270deg
+	#includeFunc cav_probes_line1
+	#includeFunc cav_probes_line2
+	#includeFunc cav_probes_line3
+	#includeFunc cav_probes_line4
+	#includeFunc cav_probes_line5
+	#includeFunc cav_probes_line6
+	#includeFunc cav_probes_line7
+	#includeFunc cav_probes_line8
+
+}
+
+// ************************************************************************* //

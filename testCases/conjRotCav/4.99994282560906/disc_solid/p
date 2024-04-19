@@ -1,0 +1,69 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       volScalarField;
+    arch        "LSB;label=32;scalar=64";
+    location    "4.99994282560906/disc_solid";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+
+internalField   uniform 100000;
+
+boundaryField
+{
+    disc_hw
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    disc_2aw
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    disc_3aw
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    disc_cav_int
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    disc_cw
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    disc_cavbore_int
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    disc_us_int
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+    disc_ds_int
+    {
+        type            calculated;
+        value           uniform 100000;
+    }
+}
+
+
+// ************************************************************************* //

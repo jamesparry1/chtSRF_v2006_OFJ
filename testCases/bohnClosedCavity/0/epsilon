@@ -1,0 +1,66 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      epsilon;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+epsilonInlet      0.001;
+mixingLengthInlet 0.007;
+
+dimensions      [0 2 -3 0 0 0 0];
+
+internalField   uniform $epsilonInlet;
+
+boundaryField
+{
+
+	bohn_shroud
+	{
+	        type            compressible::epsilonWallFunction;
+        	value           uniform $epsilonInlet;
+        }
+
+	bohn_hub
+        {
+	        type            compressible::epsilonWallFunction;
+        	value           uniform $epsilonInlet;
+        }
+
+	bohn_dswall
+        {
+	        type            compressible::epsilonWallFunction;
+        	value           uniform $epsilonInlet;
+        }
+
+	bohn_uswall
+	{
+	        type            compressible::epsilonWallFunction;
+        	value           uniform $epsilonInlet;
+	} 
+//    cav_al_int
+//    {
+//        type            compressible::epsilonWallFunction;
+//        value           uniform $epsilonInlet;
+//    }
+//
+//    cav_disc23_int
+//    {
+//        type            compressible::epsilonWallFunction;
+//        value           uniform $epsilonInlet;
+//    }
+
+    #includeEtc "caseDicts/setConstraintTypes"
+}
+
+
+// ************************************************************************* //

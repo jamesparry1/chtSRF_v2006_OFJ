@@ -1,0 +1,199 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+rmax 0.24;
+rmin 0.125;
+rnmax #calc " -$rmax";
+rnmin #calc " -$rmin";
+
+rgmax 0.21;
+rgmin 0.155;
+rgnmax #calc " -$rgmax";
+rgnmin #calc " -$rgmin";
+
+xmax 0.06;
+xmin #calc "-$xmax";
+xgmax 0.03;
+xgmin #calc "-$xgmax";
+rgmax 0.21;
+rgmin 0.155;
+zmin 0;
+zmax 0.12;
+
+xdiv 8;
+rdiv 8;
+tdiv 30;
+
+xgrad 1;
+rgrad 5;
+tgrad 1;
+
+vertices
+(
+    ($xmin $rmin $zmin)
+    ($xmax $rmin $zmin)
+    ($xmax $rmax $zmin)
+    ($xmin $rmax $zmin)
+    ($xgmin $rgmin $zmin)
+    ($xgmax $rgmin $zmin)
+    ($xgmax $rgmax $zmin)
+    ($xgmin $rgmax $zmin)
+
+    ($xmin $zmin $rmin)
+    ($xmax $zmin $rmin)
+    ($xmax $zmin $rmax)
+    ($xmin $zmin $rmax)
+    ($xgmin $zmin $rgmin)
+    ($xgmax $zmin $rgmin)
+    ($xgmax $zmin $rgmax)
+    ($xgmin $zmin $rgmax)
+
+    ($xmin $rnmin $zmin)
+    ($xmax $rnmin $zmin)
+    ($xmax $rnmax $zmin)
+    ($xmin $rnmax $zmin)
+    ($xgmin $rgnmin $zmin)
+    ($xgmax $rgnmin $zmin)
+    ($xgmax $rgnmax $zmin)
+    ($xgmin $rgnmax $zmin)
+
+    ($xmin $zmin $rnmin)
+    ($xmax $zmin $rnmin)
+    ($xmax $zmin $rnmax)
+    ($xmin $zmin $rnmax)
+    ($xgmin $zmin $rgnmin)
+    ($xgmax $zmin $rgnmin)
+    ($xgmax $zmin $rgnmax)
+    ($xgmin $zmin $rgnmax)
+);
+
+
+blocks
+(
+    // bottom 1
+    hex (0 1 5 4 8 9 13 12) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // right 1
+    hex (1 2 6 5 9 10 14 13) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // top 1
+    hex (2 3 7 6 10 11 15 14) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // left 1
+    hex (3 0 4 7 11 8 12 15) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // center 1
+    hex (4 5 6 7 12 13 14 15) ($xdiv $xdiv $tdiv) simpleGrading ($xgrad $xgrad $tgrad)
+
+    // bottom 2
+    hex (8 9 13 12 16 17 21 20) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // right 2
+    hex (9 10 14 13 17 18 22 21) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // top 2
+    hex (10 11 15 14 18 19 23 22) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // left 2
+    hex (11 8 12 15 19 16 20 23) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // center 2
+    hex (12 13 14 15 20 21 22 23) ($xdiv $xdiv $tdiv) simpleGrading ($xgrad $xgrad $tgrad)
+
+    // bottom 3
+    hex (16 17 21 20 24 25 29 28) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // right 3
+    hex (17 18 22 21 25 26 30 29) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // top 3
+    hex (18 19 23 22 26 27 31 30) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // left 3
+    hex (19 16 20 23 27 24 28 31) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // center 3
+    hex (20 21 22 23 28 29 30 31) ($xdiv $xdiv $tdiv) simpleGrading ($xgrad $xgrad $tgrad)
+   	
+    // bottom 4
+    hex (24 25 29 28 0 1 5 4) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // right 4
+    hex (25 26 30 29 1 2 6 5) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // top 4
+    hex (26 27 31 30 2 3 7 6) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // left 4
+    hex (27 24 28 31 3 0 4 7) ($xdiv $rdiv $tdiv) simpleGrading ($xgrad $rgrad $tgrad)
+    // center 4
+    hex (28 29 30 31 4 5 6 7) ($xdiv $xdiv $tdiv) simpleGrading ($xgrad $xgrad $tgrad)
+
+);
+
+edges
+(
+    arc 3 11 (-0.06 0.1697 0.1697)
+    arc 0 8 (-0.06 0.0884 0.0884)
+    arc 2 10 (0.06 0.1697 0.1697)
+    arc 1 9 (0.06 0.0884 0.0884)
+
+    arc 11 19 (-0.06 -0.1697 0.1697)
+    arc 8 16 (-0.06 -0.0884 0.0884)
+    arc 10 18 (0.06 -0.1697 0.1697)
+    arc 9 17 (0.06 -0.0884 0.0884)
+
+    arc 19 27 (-0.06 -0.1697 -0.1697)
+    arc 16 24 (-0.06 -0.0884 -0.0884)
+    arc 18 26 (0.06 -0.1697 -0.1697)
+    arc 17 25 (0.06 -0.0884 -0.0884)
+
+    arc 27 3 (-0.06 0.1697 -0.1697)
+    arc 24 0 (-0.06 0.0884 -0.0884)
+    arc 26 2 (0.06 0.1697 -0.1697)
+    arc 25 1 (0.06 0.0884 -0.0884)
+
+);
+
+patches
+(
+	wall bohn_uswall
+        (
+       		(0 3 11 8)
+		(8 11 19 16)
+		(16 19 27 24)
+		(24 27 3 0)
+        )
+
+	wall bohn_dswall
+	(
+	 	(1 2 10 9)
+		(9 10 18 17)
+		(17 18 26 25)
+		(25 26 2 1)
+	)
+
+	wall bohn_shroud
+	(
+	 	(3 2 10 11)
+		(11 10 18 19)
+		(19 18 26 27)
+		(27 26 2 3)
+	)
+
+	wall bohn_hub
+	(
+	 	(0 1 9 8)
+		(8 9 17 16)
+		(16 17 25 24)
+		(24 25 1 0)
+	)
+    
+);
+
+mergePatchPairs
+(
+);
+
+
+// ************************************************************************* //

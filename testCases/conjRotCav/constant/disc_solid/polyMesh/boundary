@@ -1,0 +1,90 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2006                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+8
+(
+    disc_hw
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          5040;
+        startFace       291600;
+    }
+    disc_2aw
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          14400;
+        startFace       296640;
+    }
+    disc_3aw
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          14400;
+        startFace       311040;
+    }
+    disc_cav_int
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          3600;
+        startFace       325440;
+	sampleMode	nearestPatchFace;
+	sampleRegion	cav_fluid;
+	samplePatch	cav_disc_int;
+    }
+    disc_cw
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          5040;
+        startFace       329040;
+    }
+    disc_cavbore_int
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          3600;
+        startFace       334080;
+	sampleMode	nearestPatchFace;
+	sampleRegion	cav_fluid;
+	samplePatch	cav_al_int;
+    }
+    disc_us_int
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          9360;
+        startFace       337680;
+	sampleMode	nearestPatchFace;
+	sampleRegion	cav_fluid;
+	samplePatch	cav_us_int;
+    }
+    disc_ds_int
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          9360;
+        startFace       347040;
+	sampleMode	nearestPatchFace;
+	sampleRegion	cav_fluid;
+	samplePatch	cav_ds_int;
+    }
+)
+
+// ************************************************************************* //

@@ -1,0 +1,11 @@
+Running the Allwmake script will compile the following solvers and boundary condition:
+-chtMultiRegionSRFFoam
+-buoyantSRFPimpleFoam
+-turbulentTemperatureCoupledBaffleMixedMixingPlane
+These have been implemented in OpenFOAM-v2006.
+
+For the mixing plane boundary condition, the number of tangential division at the interface is set to 360.
+To change this, change the value in the "mixingPlane.cpp" file for the variable "numOfDiv".
+
+To clean these run the Allwclean script
+
