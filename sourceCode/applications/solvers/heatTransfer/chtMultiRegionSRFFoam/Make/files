@@ -2,4 +2,4 @@ fluid/compressibleCourantNo.C
 solid/solidRegionDiffNo.C
 chtMultiRegionSRFFoam.C
 
-EXE = $(FOAM_APPBIN)/chtMultiRegionSRFFoam
+EXE = $(FOAM_USER_APPBIN)/chtMultiRegionSRFFoam
