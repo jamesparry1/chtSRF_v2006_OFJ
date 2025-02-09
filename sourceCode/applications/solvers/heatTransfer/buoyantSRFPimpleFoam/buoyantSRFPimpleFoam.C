@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
         {
             #include "UrelEqn.H"
 
-	    //Update absolute velcoity for calculating Urad
+	    //Update absolute velocity for calculating radial velocity Urad
 	    U = Urel + SRF->U();
 	    //Update Urad for EEqn.H
 	    Urad = (U.component(2)*cos(phiAngle)+(U.component(1)*sin(phiAngle)));
@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
                 #include "pEqn.H"
             }
 
-	    // Update the absolute velocity
+	    // Update the absolute, radial and tnagential velocities
 	    U = Urel + SRF->U();
 	    Urad = (U.component(2)*cos(phiAngle)+(U.component(1)*sin(phiAngle)));
     	    Utan = (U.component(2)*sin(phiAngle)-(U.component(1)*cos(phiAngle)));
