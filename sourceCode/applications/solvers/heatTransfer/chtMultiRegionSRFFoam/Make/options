@@ -37,4 +37,4 @@ EXE_LIBS = \
     -lcompressibleTurbulenceModels \
     -lradiationModels \
     -lregionModels \
-    -L$(FOAM_MODULE_LIBBIN) -lturbulentTemperatureCoupledBaffleMixedMixingPlane
+    -L$(FOAM_USER_LIBBIN) -lturbulentTemperatureCoupledBaffleMixedMixingPlane
