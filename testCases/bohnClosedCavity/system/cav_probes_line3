@@ -13,7 +13,7 @@ Description
 
 start   (0 0 -0.125);
 end     (0 0 -0.240);
-fields  (T p U Urel);
+fields  (T p);
 
 // Sampling and I/O settings
 #includeEtc "caseDicts/postProcessing/graphs/sampleDict.cfg"
