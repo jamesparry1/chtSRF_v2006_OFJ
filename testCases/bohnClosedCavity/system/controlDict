@@ -16,23 +16,23 @@ FoamFile
 
 application     buoyantSRFPimpleFoam; 
 
-startFrom       latestTime; //startTime;
+startFrom       latestTime;
 
 startTime	0;
 
-stopAt          endTime; //nextWrite;
+stopAt          endTime;
 
-endTime         0.1; //2.0;
+endTime         1.0;
 
-deltaT          1e-7; //8.311e-5; //2.083e-5; 
+deltaT          1e-7;
 
-writeControl    runTime; //clockTime;
+writeControl    runTime;
 
-writeInterval   0.1; //0.5;
+writeInterval   0.1;
 
 purgeWrite      0;
 
-writeFormat     binary;
+writeFormat     ascii;
 
 writePrecision  8;
 
