@@ -24,7 +24,7 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Application
-    buoyantPimpleFoam
+    buoyantSRFPimpleFoam
 
 Group
     grpHeatTransferSolvers
@@ -32,6 +32,8 @@ Group
 Description
     Transient solver for buoyant, turbulent flow of compressible fluids for
     ventilation and heat-transfer.
+    Solution calculated in the rotating frame of reference using relative
+    velocity Urel.
 
     Turbulence is modelled using a run-time selectable compressible RAS or
     LES model.
@@ -94,9 +96,9 @@ int main(int argc, char *argv[])
         {
             #include "UrelEqn.H"
 
-	    //Update absolute velocity for calculating radial velocity Urad
+	    //Update absolute velocity for calculating radial velocity (Urad)
 	    U = Urel + SRF->U();
-	    //Update Urad for EEqn.H
+	    //Calculate Urad for use in EEqn.H
 	    Urad = (U.component(2)*cos(phiAngle)+(U.component(1)*sin(phiAngle)));
 
 	    #include "EEqn.H"
@@ -107,7 +109,7 @@ int main(int argc, char *argv[])
                 #include "pEqn.H"
             }
 
-	    // Update the absolute, radial and tnagential velocities
+	    // Update the absolute, radial and tangential velocities
 	    U = Urel + SRF->U();
 	    Urad = (U.component(2)*cos(phiAngle)+(U.component(1)*sin(phiAngle)));
     	    Utan = (U.component(2)*sin(phiAngle)-(U.component(1)*cos(phiAngle)));
