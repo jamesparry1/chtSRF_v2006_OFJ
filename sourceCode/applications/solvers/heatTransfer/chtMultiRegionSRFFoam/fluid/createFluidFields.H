@@ -1,3 +1,11 @@
+// Added fields for:
+//Urel; relative velocity vector (m/s)
+//Urad; radial velocity component (m/s) decomposed from absolute velocity U
+//Utan; tangential velocity component (m/s) decomposed from absolute velocity U
+//r; radial distance (m) decomposed from centre of rotation (0,0,0)
+//phiAngle; tangential location (rad) decomposed from centre of rotation (0,0,0)
+//SRF; SRF model pointer
+
 // Initialise fluid field pointer lists
 PtrList<rhoReactionThermo> thermoFluid(fluidRegions.size());
 PtrList<volScalarField> rhoFluid(fluidRegions.size());
