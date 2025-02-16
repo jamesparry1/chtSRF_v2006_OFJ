@@ -1,3 +1,5 @@
+//Changes to code to use Urel instead of U for solving in the rotating frame of reference
+
 bool closedVolume = p_rgh.needReference();
 dimensionedScalar compressibility = fvc::domainIntegrate(psi);
 bool compressible = (compressibility.value() > SMALL);
