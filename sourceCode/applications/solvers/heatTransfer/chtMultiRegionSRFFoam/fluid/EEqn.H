@@ -1,3 +1,11 @@
+//Term added to account for the effect of compressibility when 
+//solving the energy equation in the rotating frame of reference: rho*r*omega^2*Urad
+//rho; density (kg/m3)
+//r; radial distance (m)
+//omega; rotational velocity (rad/s)
+//Urad; radial velocity (m/s)
+//Urad and r are calculated in the code as fields
+
 {
     volScalarField& he = thermo.he();
 
