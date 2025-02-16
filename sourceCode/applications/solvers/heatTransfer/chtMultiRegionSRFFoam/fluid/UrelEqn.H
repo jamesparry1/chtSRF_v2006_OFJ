@@ -1,4 +1,7 @@
-    // Solve the Momentum equation
+// Solve the Momentum equation in the rotating frame of reference:
+// MRF correction removed, (SRF->Su) term added to add the source term from SRFModel.H
+// K term updated to use Urel instead of U
+
 
 //    MRF.correctBoundaryVelocity(Urel);
 
