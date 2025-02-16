@@ -14,11 +14,12 @@ else
         #include "rhoEqn.H"
     }
 
+    //Solve momentum equation using Urel in relative frame of reference
     #include "UrelEqn.H"
 
-    //Update absolute velcoity for calculating Urad
+    //Update absolute velocity U for calculating Urad
     U = Urel + SRF.U();
-    //Update Urad for EEqn.H
+    //Calculate Urad for EEqn.H
     Urad = (U.component(2)*cos(phiAngle)+(U.component(1)*sin(phiAngle)));
 
     #include "YEqn.H"
@@ -31,7 +32,7 @@ else
     }
 
     //Update pEqn corrected absolute velocity for 
-    //calculating U and Urad
+    //calculating U, Urad and Utan
     U = Urel + SRF.U();
     Urad = (U.component(2)*cos(phiAngle)+(U.component(1)*sin(phiAngle)));
     Utan = (U.component(2)*sin(phiAngle)-(U.component(1)*cos(phiAngle)));
