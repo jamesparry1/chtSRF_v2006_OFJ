@@ -1,0 +1,6 @@
+To run the case run the Allrun script.
+To clean the case run the Allclean script.
+
+This case uses buoyantSRFPimpleFoam, a fluid-only version of the chtMultiRegionSRFFoam solver.
+
+To post-process the data run the python script "pythonPost.py" to create plots of convergence and circumferentially averaged temperature.

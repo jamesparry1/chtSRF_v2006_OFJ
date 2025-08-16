@@ -1,0 +1,3 @@
+wmake applications/solvers/heatTransfer/buoyantSRFPimpleFoam
+wmake applications/solvers/heatTransfer/chtMultiRegionSRFFoam
+wmake src/TurbulenceModels/compressible/turbulentFluidThermoModels/derivedFvPatchFields/turbulentTemperatureCoupledBaffleMixedMixingPlane

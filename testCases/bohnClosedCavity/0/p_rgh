@@ -1,0 +1,65 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p_rgh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "$FOAM_CASE/constant/initialConditions";
+
+dimensions      [ 1 -1 -2 0 0 0 0 ];
+
+internalField   uniform $pInitial;
+
+boundaryField
+{
+	bohn_shroud
+	{
+	        type    fixedFluxPressure;
+		value   uniform $pInitial;
+        }
+
+	bohn_hub
+        {
+	        type    fixedFluxPressure;
+		value   uniform $pInitial;
+        }
+
+	bohn_dswall
+        {
+	        type    fixedFluxPressure;
+		value   uniform $pInitial;
+        }
+
+	bohn_uswall
+	{
+	        type    fixedFluxPressure;
+		value   uniform $pInitial;
+	}    
+
+//    cav_al_int
+//    {
+//        type    fixedFluxPressure;
+//	value   uniform $pInitial;
+//    }
+//
+//    cav_disc23_int
+//    {
+//        type    fixedFluxPressure;
+//	value   uniform $pInitial;
+//    }
+
+    #includeEtc "caseDicts/setConstraintTypes"
+}
+
+
+// ************************************************************************* //
