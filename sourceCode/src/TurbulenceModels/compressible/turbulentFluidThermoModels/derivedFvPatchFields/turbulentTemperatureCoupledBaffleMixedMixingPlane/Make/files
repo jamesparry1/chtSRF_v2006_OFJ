@@ -1,4 +1,0 @@
-turbulentTemperatureCoupledBaffleMixedMixingPlaneFvPatchScalarField.C
-mixingPlane.cpp
-
-LIB = $(FOAM_USER_LIBBIN)/libturbulentTemperatureCoupledBaffleMixedMixingPlane

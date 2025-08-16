@@ -1,3 +1,0 @@
-wclean applications/solvers/heatTransfer/buoyantSRFPimpleFoam
-wclean applications/solvers/heatTransfer/chtMultiRegionSRFFoam
-wclean src/TurbulenceModels/compressible/turbulentFluidThermoModels/derivedFvPatchFields/turbulentTemperatureCoupledBaffleMixedMixingPlane
